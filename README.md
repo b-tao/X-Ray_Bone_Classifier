@@ -24,8 +24,8 @@ Initial code was adapted from the Dataset author VUPPALA ADITHYA SAIRAM's baseli
 ### Training
  - Data was trained using Binary-CrossEntropy as the loss function and the Adam optimizer. 
  - Hyperparameters were tuned using 2 types of callbacks.
- -- ModelCheckpoint - saves the best model based on validation accuracy while training. This way, we have access to a model that wouldn't be overfit if the epochs are too large
- -- Reduce LR on Plataeu - reduces the learning rate by 10% if the validation loss doesn't decrease after 20% of the total number of epochs. This will help stablize a node and prevent increased change from new backpropagation. 
+  - ModelCheckpoint - saves the best model based on validation accuracy while training. This way, we have access to a model that wouldn't be overfit if the epochs are too large
+  - Reduce LR on Plataeu - reduces the learning rate by 10% if the validation loss doesn't decrease after 20% of the total number of epochs. This will help stablize a node and prevent increased change from new backpropagation. 
 
 ## Validation
  - Running the best model (saved from ModelCheckpoint) and the complete model (saved at the end of running all epochs) returns an accuracy on the validation dataset of 77.8% and 74.2% respectively. 
@@ -34,6 +34,6 @@ Initial code was adapted from the Dataset author VUPPALA ADITHYA SAIRAM's baseli
 ## Potential Next Steps For this Project
  - Implement Cross-Validation as another marker to judge model efficacy.
  - Tune more HyperParameters to prevent overfitting, such as:
- --  Add/Modify/Remove Layers to further improve accuracy.
- --  Adding L1 or L2 Regularization Layers
- --  Modifying the Kernel sizes (i.e. 5x5)
+  -  Add/Modify/Remove Layers to further improve accuracy.
+  -  Adding L1 or L2 Regularization Layers
+  -  Modifying the Kernel sizes (i.e. 5x5)
