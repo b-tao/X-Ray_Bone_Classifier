@@ -6,7 +6,9 @@ This project creates a model architecture for a Convolutional Neural Network tha
 ## Dataset
 The Dataset was provided off VUPPALA ADITHYA SAIRAM on Kaggle (https://www.kaggle.com/datasets/vuppalaadithyasairam/bone-fracture-detection-using-xrays).
 Data was already split into Training and Validation set, with each one containing a roughly equal number of fractured and nonfractured X-ray images. Within each folder, there are a series of images along with their variants rotated in the third dimension. 
-Images are 224 by 224 pixels in size.
+Images are 224 by 224 pixels in size. <br /> 
+![frac](./readme_imgs/fractured_ex.png)
+![unfrac](./readme_imgs/unfractured_ex.png)
 
 ## Methodology
 
@@ -20,6 +22,7 @@ Initial code was adapted from the Dataset author VUPPALA ADITHYA SAIRAM's baseli
  - Convolution Layers with Pooling Layers are applied to extract image features. General kernal_size of 3x3 was used, along with the rectified linear activation function.
  - After a flattening layer, a series of fully connected layers are used to extrapolate to an eventually classification (Fractured or not). 
  - Dropout was interwoven within the fully-connected layers to introduce variance and encourage more use of all the nodes. 
+ ![arch](./readme_imgs/model_arch.png)
 
 ### Training
  - Data was trained using Binary-CrossEntropy as the loss function and the Adam optimizer. 
@@ -30,6 +33,8 @@ Initial code was adapted from the Dataset author VUPPALA ADITHYA SAIRAM's baseli
 ## Validation
  - Running the best model (saved from ModelCheckpoint) and the complete model (saved at the end of running all epochs) returns an accuracy on the validation dataset of 77.8% and 74.2% respectively. 
  - Running the models on the training dataset returns 98%-99% accuracy, indicating some degree of overfitting. 
+ ![acc](./readme_imgs/model_acc.png)
+ ![loss](./readme_imgs/model_loss.png)
 
 ## Potential Next Steps For this Project
  - Implement Cross-Validation as another marker to judge model efficacy.
