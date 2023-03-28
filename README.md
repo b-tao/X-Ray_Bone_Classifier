@@ -1,12 +1,12 @@
 # X-Ray-Bone-Classifier
 
 ## Summary
-This project's goal was to create a Convolutional Neural Network that could predict whether an X-ray Image showed a Fractured or UnFractured Bone. 
+This project creates a model architecture for a Convolutional Neural Network that could predict whether an X-ray Image showed a Fractured or UnFractured Bone. Training accuracy of 99% & 98% and Validation accuracy of 74.2% & 77.8% were obtained respectively from the 2 models generated. 
 
 ## Dataset
 The Dataset was provided off VUPPALA ADITHYA SAIRAM on Kaggle (https://www.kaggle.com/datasets/vuppalaadithyasairam/bone-fracture-detection-using-xrays).
 Data was already split into Training and Validation set, with each one containing a roughly equal number of fractured and nonfractured X-ray images. Within each folder, there are a series of images along with their variants rotated in the third dimension. 
-Images are in 224 x 224 size with each holding rgb channels. 
+Images are 224 by 224 pixels in size.
 
 ## Methodology
 
@@ -24,8 +24,8 @@ Initial code was adapted from the Dataset author VUPPALA ADITHYA SAIRAM's baseli
 ### Training
  - Data was trained using Binary-CrossEntropy as the loss function and the Adam optimizer. 
  - Hyperparameters were tuned using 2 types of callbacks.
-  - ModelCheckpoint - saves the best model based on validation accuracy while training. This way, we have access to a model that wouldn't be overfit if the epochs are too large
-  - Reduce LR on Plataeu - reduces the learning rate by 10% if the validation loss doesn't decrease after 20% of the total number of epochs. This will help stablize a node and prevent increased change from new backpropagation. 
+    - ModelCheckpoint - saves the best model based on validation accuracy while training. This way, we have access to a model that wouldn't be overfit if the epochs are too large
+    - Reduce LR on Plataeu - reduces the learning rate by 10% if the validation loss doesn't decrease after 20% of the total number of epochs. This will help stablize a node and prevent increased change from new backpropagation. 
 
 ## Validation
  - Running the best model (saved from ModelCheckpoint) and the complete model (saved at the end of running all epochs) returns an accuracy on the validation dataset of 77.8% and 74.2% respectively. 
@@ -34,6 +34,6 @@ Initial code was adapted from the Dataset author VUPPALA ADITHYA SAIRAM's baseli
 ## Potential Next Steps For this Project
  - Implement Cross-Validation as another marker to judge model efficacy.
  - Tune more HyperParameters to prevent overfitting, such as:
-  -  Add/Modify/Remove Layers to further improve accuracy.
-  -  Adding L1 or L2 Regularization Layers
-  -  Modifying the Kernel sizes (i.e. 5x5)
+   -  Add/Modify/Remove Layers to further improve accuracy.
+   -  Adding L1 or L2 Regularization Layers
+   -  Modifying the Kernel sizes (i.e. 5x5)
