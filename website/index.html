@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>X-Ray Bone Classifier</title>
+    <link rel="stylesheet" href="style.css" />
+
+</head>
+
+<body>
+    <header>
+        <h1>X-Ray Bone Classifier</h1>
+        <a href="https://github.com/b-tao/X-Ray_Bone_Classifier">
+            <div class="Github-link">
+                <h2>Brian Tao [ b-tao on Github ]</h2>
+                <img id="github-img" src="../readme_imgs/github_logo.png">
+            </div>
+        </a>
+    </header>
+    <main>
+        <section id="summary">
+            <h2>Summary</h2>
+            <p>
+                This project creates a model architecture for a Convolutional Neural
+                Network that could predict whether an X-ray Image showed a Fractured
+                or UnFractured Bone. Training accuracy of 99% &amp; 98% and Validation
+                accuracy of 74.2% &amp; 77.8% were obtained respectively from the 2
+                models generated.
+            </p>
+        </section>
+
+        <section id="dataset">
+            <h2>Dataset</h2>
+            <p>
+                The Dataset was provided off VUPPALA ADITHYA SAIRAM on Kaggle (
+                <a
+                    href="https://www.kaggle.com/datasets/vuppalaadithyasairam/bone-fracture-detection-using-xrays">https://www.kaggle.com/datasets/vuppalaadithyasairam/bone-fracture-detection-using-xrays</a>
+                ). Data was already split into Training and Validation set, with each
+                one containing a roughly equal number of fractured and nonfractured
+                X-ray images. Within each folder, there are a series of images along
+                with their variants rotated in the third dimension. Images are 224 by
+                224 pixels in size.
+            </p>
+            <div class="image-grid">
+                <p>Example of Fractured Bone X-Rays: </p>
+                <div class="image-container">
+                    <img src="../readme_imgs/fractured_ex.png" alt="fractured example" />
+                </div>
+                <p>Example of Unfractured Bone X-Rays: </p>
+                <div class="image-container">
+                    <img src="../readme_imgs/unfractured_ex.png" alt="unfractured example" />
+                </div>
+            </div>
+        </section>
+
+        <section id="methodology">
+            <h2>Methodology</h2>
+
+            <h3>Preprocessing</h3>
+            <p>Due to the relatively small size of the dataset provided, Data Augmentation was introduced to provide
+                more robustness to the model. The Image-inputs generated from the Dataset are changed via the
+                ImageDataGenerator object 'image_datagen'. Rotation, shear, zoom, flip, and height/width transformations
+                are all altered in the Dataset to provide more variance and improve the model's ability to generalize.
+            </p>
+
+            <h3>Model Architecture</h3>
+            <p>After Inputting the Image data, a Rescaling Layer is applied to scale the rbg data values down from 0-255
+                to a float value between 0-1. This normalization of data is seen throughout the Model through Batch
+                Normalization Layers to prevent previously observed internal covariate shifts and vanishing/exploding
+                gradients.</p>
+            <p>Convolution Layers with Pooling Layers are applied to extract image features. General kernal_size of 3x3
+                was used, along with the rectified linear activation function.</p>
+            <p>After a flattening layer, a series of fully connected layers are used to extrapolate to an eventually
+                classification (Fractured or not).</p>
+            <p>Dropout was interwoven within the fully-connected layers to introduce variance and encourage more use of
+                all the nodes.</p>
+            <div class="image-container">
+
+                <img src="../readme_imgs/model_arch.png" alt="model architecture">
+            </div>
+            <h3>Training</h3>
+            <p>Data was trained using Binary-CrossEntropy as the loss function and the Adam optimizer.</p>
+            <p>Hyperparameters were tuned using 2 types of callbacks.</p>
+            <ul>
+                <li>ModelCheckpoint - saves the best model based on validation accuracy while training. This way, we
+                    have access to a model that wouldn't be overfit if the epochs are too large</li>
+                <li>Reduce LR on Plateau - reduces the learning rate by 10% if the validation loss doesn't decrease
+                    after 20% of the total number of epochs. This will help stabilize a node and prevent increased
+                    change from new backpropagation.</li>
+            </ul>
+        </section>
+        <section id="" Validation>
+            <h2>Validation</h2>
+            <p>Running the best model (saved from ModelCheckpoint) and the complete model (saved at the end of running
+                all epochs) returns an accuracy on the validation dataset of 77.8% and 74.2% respectively.</p>
+            <p>Running the models on the training dataset returns 98%-99% accuracy, indicating some degree of
+                overfitting.</p>
+            <div class="image-container">
+                <img src="../readme_imgs/model_acc.png" alt="model accuracy">
+            </div>
+            <div class="image-container">
+                <img src="../readme_imgs/model_loss.png" alt="model loss">
+            </div>
+        </section>
+        <section id="Next Steps">
+            <h2>Potential Next Steps For this Project</h2>
+            <ul>
+                <li>Implement Cross-Validation as another marker to judge model efficacy.</li>
+                <li>Tune more HyperParameters to prevent overfitting, such as:
+                    <ul>
+                        <li>Add/Modify/Remove Layers to further improve accuracy.</li>
+                        <li>Adding L1 or L2 Regularization Layers.</li>
+                        <li>Modifying the Kernel sizes (i.e. 5x5).</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>

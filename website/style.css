@@ -1,0 +1,163 @@
+/* Methodology */
+#methodology {
+  margin: 40px 0;
+}
+
+#methodology h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+#methodology h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+#methodology img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+#methodology ul {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  list-style-type: disc;
+  list-style-position: outside;
+  padding-left: 1.5rem;
+}
+
+#methodology li {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+#methodology p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+
+#methodology .code {
+  display: block;
+  background-color: #f7f7f7;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  line-height: 1.2;
+  border-radius: 0.3rem;
+  overflow-x: auto;
+}
+
+
+body {
+  background-color: #1b1b1b;
+  color: #f0f0f0;
+  font-family: Arial, sans-serif;
+}
+
+section {
+  border: 1px solid #f0f0f0;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 30px;
+  background-color: #2a2a2a;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #f0f0f0;
+  margin-top: 0;
+}
+
+h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 28px;
+  margin-bottom: 16px;
+}
+
+h3 {
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+
+
+a {
+  color: #f0f0f0;
+  text-decoration: none;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+a:hover {
+  color: #f0f0f0;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+
+.image-container {
+  background-color: white;
+  padding: 0%;
+  display: inline-flex;
+
+}
+
+header {
+  text-align: center;
+  padding: 1%;
+  padding-bottom: 0%;
+}
+
+main {
+  padding: 1%;
+  padding-top: 0%;
+}
+
+.image-grid {
+  display: flex;
+  flex-direction: column;
+}
+
+.image-grid p {
+  justify-content: flex-start;
+}
+
+.image-container {
+  display: inline-block;
+  justify-content: center;
+  width: fit-content;
+  padding: 1%;
+}
+
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  padding: 1%;
+}
+
+.github img {
+  height: 100%;
+}
+
+.Github-link {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+}
