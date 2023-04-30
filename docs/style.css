@@ -64,9 +64,9 @@ body {
 
 section {
   border: 1px solid #f0f0f0;
-  border-radius: 10px;
-  padding: 20px;
-  margin-bottom: 30px;
+  border-radius: 1rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
   background-color: #2a2a2a;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
@@ -152,12 +152,25 @@ img {
   padding: 1%;
 }
 
-.github img {
-  height: 100%;
+.github-img {
+  max-height: 100%;
+  flex-shrink: 1;
+  float: left;
 }
 
 .Github-link {
   display: flex;
-  align-items: stretch;
+  flex-direction: row;
+  align-items: center;
   justify-content: center;
+}
+
+.credit {
+  margin: 0;
+}
+
+.image-con{
+  max-height: 2rem;
+  max-width: 2rem;
+  display: flex;
 }
